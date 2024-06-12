@@ -1,0 +1,13 @@
+# Dockerfile for NGINX serving frontend from Jenkins image
+FROM jenkins/jenkins:latest
+
+# Copy frontend files into NGINX directory
+COPY index.html /usr/share/nginx/html/
+COPY frontend.js /usr/share/nginx/html/
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose port 80 for NGINX
+EXPOSE 80
+
+# Start NGINX daemon
+CMD ["nginx", "-g", "daemon off;"]

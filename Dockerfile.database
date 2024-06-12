@@ -1,0 +1,11 @@
+# Dockerfile for Database using Jenkins image
+FROM jenkins/jenkins:latest
+
+# Set working directory
+WORKDIR /data
+
+# Copy the numbers.txt file into the container
+COPY numbers.txt /data/numbers.txt
+
+# Keep container running
+CMD ["tail", "-f", "/dev/null"]
